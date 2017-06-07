@@ -1,0 +1,148 @@
+// Normalize
+@import 'normalize/normalize';
+
+
+html, body{
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+// 
+body {
+	 -webkit-font-smoothing: antialiased;
+	background-color: #5C94FC;
+	display: flex;
+	flex-direction: column;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 6vw;
+    font-weight: 400;
+    line-height:1;
+    margin-bottom: 0;
+    margin-top: 0;
+	text-align: center;
+}
+
+
+// Header
+
+.header {
+	padding-top: 40px;
+}
+
+// Controls
+
+.game-controls {
+	margin: 20px auto;
+	max-width: 600px;
+	text-align: center;
+
+	&__btn {
+		display: block;
+		max-width: 100px;
+		margin: 20px auto;
+	}
+}
+
+.score {
+	background:rgba(255,255,255,0.2);
+	border-radius:1rem;
+	line-height:1;
+	padding:0 3rem;
+}
+
+
+/* Game Content */
+
+.game {
+	display:flex;
+	flex-wrap:wrap;
+	height: 65vh;
+	margin:0 auto;
+	max-height: 660px;
+	max-width: 600px;
+	width: 100%;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	height: auto;
+	margin-bottom: 20px;
+	position: relative;
+	width: 100%;
+
+	&:not(.last):after {
+		background: url('../assets/images/shelf-tile.png');
+		content: "";
+		display: block;
+		height: 4.5vh;
+		position: absolute;
+		top: 100%;
+		width: 100%;
+	}
+
+	&.last {
+		margin-bottom: 0;
+	}
+}
+
+.hole {
+	flex: 1 0 33.33%;
+	overflow: hidden;
+	position: relative;
+
+	&:after {
+		display: block;
+		background: url('../assets/images/tube.png') bottom center no-repeat;
+		background-size:contain;
+		content:'';
+		width: 100%;
+		// height:100px;
+		height: 49%;
+		position: absolute;
+		z-index: 2;
+		bottom: 0;
+	}
+
+	&.alive .flower {
+		top: 13%;
+	}
+
+	&.dead .flower {
+		// background-image: url('http://rs217.pbsrc.com/albums/cc85/Shadowmario111160/Mario%20Clips%20And%20Movies/thcoin.gif~c200');
+		background-image:url('../assets/images/coin.gif');
+		height: 28%;
+		top: 13%;
+	}
+
+	&.bury .flower {
+		top: 100%;
+	}
+}
+
+.flower {
+	background:url('../assets/images/flower.png') top center no-repeat;
+	background-size: contain;
+	height: 40%;
+	position: absolute;
+	top: 100%;
+	transition: top 0.6s;
+	width: 100%;
+}
+
+/* Footer */
+
+.game-floor {
+	background: url('../assets/images/ground-tile.png');
+	flex: 1;
+}
