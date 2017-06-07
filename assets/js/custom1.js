@@ -14,6 +14,7 @@ function randomHole(holes) {
 	var hole = holes[idx];
 
 	if (hole === lastHole) {
+  		console.log('Ah nah thats the same one bud');
   		return randomHole(holes); 
 	}
 
@@ -51,7 +52,7 @@ function startGame() {
 	timeUp = false;
 	score = 0;
 	clock(20);
-	revealFlower();
+	revealFlower(); 
 	setTimeout( function () { timeUp = true; }, 20000);
 }
 
